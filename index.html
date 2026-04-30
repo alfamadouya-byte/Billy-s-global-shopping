@@ -1,407 +1,202 @@
-<!DOCTYPE html>  <html lang="fr">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Biliz Global | Votre passerelle vers la Chine</title>  
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">  
-    <style>  
-        /* ==============================  
-           1. CSS Reset & Variables de base  
-           ============================== */  
-        :root {  
-            --primary-orange: #f56e18; /* L'orange de Biliz Global */  
-            --dark-gray: #333333;  
-            --mid-gray: #666666;  
-            --light-gray: #f5f5f5;  
-            --white: #ffffff;  
-            --border-color: #eaeaea;  
-            --font-family: 'Poppins', sans-serif;  
-        }  * { margin: 0; padding: 0; box-sizing: border-box; }  
-      
-    body {  
-        background-color: var(--white);  
-        color: var(--dark-gray);  
-        font-family: var(--font-family);  
-        line-height: 1.6;  
-        -webkit-font-smoothing: antialiased;  
-    }  
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BILIZ GLOBAL | Importation Chine-Afrique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange-biliz: #f56e18;
+            --noir-biliz: #1a1a1a;
+            --gris-clair: #f4f4f4;
+            --blanc: #ffffff;
+        }
 
-    img { max-width: 100%; height: auto; }  
-    a { text-decoration: none; color: inherit; transition: 0.3s; }  
-    ul { list-style: none; }  
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--blanc); color: var(--noir-biliz); }
 
-    /* Utilitaires de grille et conteneur */  
-    .container { width: 90%; max-width: 1200px; margin: 0 auto; }  
-    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }  
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }  
-    .grid-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }  
-    .grid-8 { display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; }  
+        /* HEADER PROFESSIONNEL */
+        header { 
+            background: var(--blanc); 
+            padding: 10px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .logo-section img { height: 50px; }
+        .search-container { flex: 1; margin: 0 20px; display: flex; }
+        .search-container input { 
+            width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px 0 0 5px; 
+        }
+        .search-container button { 
+            background: var(--orange-biliz); color: white; border: none; padding: 0 20px; border-radius: 0 5px 5px 0; cursor: pointer;
+        }
+        .contact-top { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 0.9rem; }
 
-    /* Utilitaires de texte et boutons */  
-    .section-title { font-size: 1.5rem; font-weight: 700; text-transform: uppercase; margin-bottom: 25px; }  
-    .text-orange { color: var(--primary-orange); }  
-      
-    .btn-orange {  
-        display: inline-block;  
-        background-color: var(--primary-orange);  
-        color: var(--white);  
-        padding: 10px 25px;  
-        border-radius: 5px;  
-        font-weight: 600;  
-        text-transform: uppercase;  
-        font-size: 0.85rem;  
-        border: none;  
-        cursor: pointer;  
-    }  
-      
-    .btn-orange:hover { background-color: #d85c13; }  
+        /* HERO BANNER (NAVRE ET AVION) */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1494412519320-aa613dfb7738?q=80&w=2000');
+            background-size: cover; background-position: center;
+            color: white; padding: 60px 5%; text-align: center;
+        }
+        .hero h1 { font-size: 2.5rem; text-transform: uppercase; line-height: 1.2; }
+        .hero h1 span { color: var(--orange-biliz); }
+        .hero p { margin: 15px 0; font-weight: 600; letter-spacing: 1px; }
 
-    /* ==============================  
-       2. En-tête (Header)  
-       ============================== */  
-    header {  
-        background-color: var(--white);  
-        padding: 15px 0;  
-        border-bottom: 1px solid var(--border-color);  
-        position: sticky; top: 0; z-index: 1000;  
-    }  
+        /* MARCHÉS DE CHINE */
+        .section-title { padding: 30px 5% 10px; font-size: 1.2rem; font-weight: 700; text-transform: uppercase; }
+        .markets-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px 5%; }
+        .market-card { border: 1px solid #eee; border-radius: 10px; overflow: hidden; text-align: center; transition: 0.3s; }
+        .market-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .market-card img { width: 100%; height: 200px; object-fit: cover; }
+        .market-info { padding: 15px; }
+        .market-info h3 { color: var(--orange-biliz); margin-bottom: 5px; }
+        .btn-explorer { 
+            display: block; background: var(--orange-biliz); color: white; text-decoration: none; 
+            padding: 10px; margin-top: 10px; border-radius: 5px; font-weight: 600;
+        }
 
-    .header-content { display: flex; justify-content: space-between; align-items: center; }  
+        /* CATÉGORIES (ICÔNES) */
+        .categories-scroll { 
+            display: flex; gap: 15px; padding: 20px 5%; overflow-x: auto; scrollbar-width: none;
+        }
+        .cat-item { 
+            min-width: 100px; padding: 15px; border: 1px solid #ddd; border-radius: 10px; 
+            text-align: center; cursor: pointer; background: white;
+        }
+        .cat-item.active { background: var(--orange-biliz); color: white; border-color: var(--orange-biliz); }
+        .cat-item i { font-size: 1.5rem; display: block; margin-bottom: 5px; }
+        .cat-item span { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
 
-    .logo-area img { width: 180px; }  
+        /* PRODUITS POPULAIRES */
+        .products-grid { 
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+            gap: 20px; padding: 20px 5%; 
+        }
+        .product-card { border: 1px solid #eee; border-radius: 10px; padding: 15px; text-align: center; }
+        .product-card img { max-width: 100%; height: 130px; object-fit: contain; margin-bottom: 10px; }
+        .product-card h4 { font-size: 0.85rem; height: 40px; overflow: hidden; margin-bottom: 10px; }
+        .product-card .price { font-weight: 700; font-size: 1.1rem; color: #d00; margin-bottom: 10px; }
+        .btn-commander { 
+            width: 100%; background: var(--orange-biliz); color: white; border: none; 
+            padding: 8px; border-radius: 5px; cursor: pointer; font-weight: 600;
+        }
 
-    .search-area { width: 35%; display: flex; }  
-    .search-area input {  
-        flex-grow: 1;  
-        padding: 10px 15px;  
-        border: 1px solid #ccc;  
-        border-radius: 5px 0 0 5px;  
-        font-size: 0.9rem;  
-    }  
-    .search-area button { border-radius: 0 5px 5px 0; }  
+        /* FOOTER */
+        footer { background: var(--noir-biliz); color: white; padding: 40px 5%; margin-top: 50px; }
+        .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
+        .footer-logo h2 { color: var(--blanc); }
+        .whatsapp-footer { color: var(--orange-biliz); font-size: 1.5rem; font-weight: 700; text-decoration: none; }
 
-    .contact-area { display: flex; align-items: center; gap: 15px; font-size: 0.9rem; }  
-    .guinea-flag { width: 25px; height: 18px; object-fit: cover; border-radius: 2px; }  
-    .whatsapp-icon { width: 20px; vertical-align: middle; }  
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            header { flex-direction: column; gap: 10px; }
+            .search-container { width: 100%; }
+        }
+    </style>
+</head>
+<body>
 
-    /* ==============================  
-       3. Section Hero (Bannière)  
-       ============================== */  
-    .hero {  
-        background-color: #001f3f; /* Bleu foncé de base si l'image ne charge pas */  
-        background-image: linear-gradient(rgba(0,31,63,0.7), rgba(0,31,63,0.7)), url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2000');  
-        background-size: cover; background-position: center;  
-        color: var(--white);  
-        padding: 100px 0;  
-        text-align: center;  
-    }  
+    <header>
+        <div class="logo-section">
+            <h2 style="color:var(--orange-biliz)">BILIZ GLOBAL</h2>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Rechercher un produit, une catégorie...">
+            <button>Rechercher</button>
+        </div>
+        <div class="contact-top">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Flag_of_Guinea.svg" width="25" alt="Guinée">
+            <span>+224 612 07 34 39</span>
+        </div>
+    </header>
 
-    .hero-title { font-size: 3rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 2px; }  
-    .hero-title span { color: var(--primary-orange); }  
-      
-    .hero p { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; color: #ccc; }  
+    <section class="hero">
+        <h1>VOTRE PASSERELLE <br><span>VERS LA CHINE</span></h1>
+        <p>NOUS IMPORTONS, VOUS GAGNEZ !</p>
+        <div style="display:flex; justify-content:center; gap:20px; font-size:0.8rem; text-transform:uppercase;">
+            <span>💰 Meilleurs Prix</span>
+            <span>🛡️ Livraison Sécurisée</span>
+            <span>✅ Qualité Garantie</span>
+        </div>
+    </section>
 
-    .trust-badges { display: flex; justify-content: center; gap: 40px; margin-top: 50px; }  
-    .badge { font-size: 0.8rem; text-transform: uppercase; }  
-    .badge-icon { display: block; font-size: 2rem; margin-bottom: 5px; color: var(--primary-orange); }  
+    <div class="section-title">LES 3 PLUS GRANDS MARCHÉS DE CHINE</div>
+    <section class="markets-grid">
+        <div class="market-card">
+            <img src="https://images.unsplash.com/photo-1541451378359-acdead0bb8ee?q=80&w=600" alt="Yiwu">
+            <div class="market-info">
+                <h3>YIWU</h3>
+                <p>Le plus grand marché de gros du monde</p>
+                <a href="#" class="btn-explorer">Explorer Yiwu</a>
+            </div>
+        </div>
+        <div class="market-card">
+            <img src="https://images.unsplash.com/photo-1550340499-a6c60ff52822?q=80&w=600" alt="Shenzhen">
+            <div class="market-info">
+                <h3>SHENZHEN</h3>
+                <p>La capitale mondiale de la technologie</p>
+                <a href="#" class="btn-explorer">Explorer Shenzhen</a>
+            </div>
+        </div>
+        <div class="market-card">
+            <img src="https://images.unsplash.com/photo-1545459720-aac8309b4ef5?q=80&w=600" alt="Guangzhou">
+            <div class="market-info">
+                <h3>GUANGZHOU</h3>
+                <p>Le centre névralgique du commerce</p>
+                <a href="#" class="btn-explorer">Explorer Guangzhou</a>
+            </div>
+        </div>
+    </section>
 
-    /* ==============================  
-       4. Section Marchés & Catégories  
-       ============================== */  
-    .markets, .categories { padding: 60px 0; background-color: var(--white); }  
-      
-    .see-all { float: right; font-size: 0.8rem; color: var(--primary-orange); font-weight: 600; }  
+    <section class="categories-scroll">
+        <div class="cat-item active">📦<br><span>Tous les produits</span></div>
+        <div class="cat-item">📱<br><span>Électronique</span></div>
+        <div class="cat-item">👕<br><span>Vêtements</span></div>
+        <div class="cat-item">🏠<br><span>Maison</span></div>
+        <div class="cat-item">⚙️<br><span>Machines</span></div>
+        <div class="cat-item">👟<br><span>Chaussures</span></div>
+    </section>
 
-    .market-card {  
-        background-color: var(--white);  
-        border-radius: 8px;  
-        overflow: hidden;  
-        border: 1px solid var(--border-color);  
-        transition: 0.3s;  
-        text-align: center;  
-    }  
-    .market-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }  
+    <div class="section-title">PRODUITS POPULAIRES</div>
+    <section class="products-grid">
+        <div class="product-card">
+            <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-7inch-naturaltitanium?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1692845702708" alt="iPhone">
+            <h4>iPhone 15 Pro Max - 1TB</h4>
+            <p class="price">$1,499.00</p>
+            <button class="btn-commander">Commander</button>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?q=80&w=600" alt="Noodles">
+            <h4>Packs Nouilles Importées (x12)</h4>
+            <p class="price">$24.50</p>
+            <button class="btn-commander">Commander</button>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=600" alt="Montre">
+            <h4>Montre Connectée Série 9</h4>
+            <p class="price">$45.00</p>
+            <button class="btn-commander">Commander</button>
+        </div>
+    </section>
 
-    .market-img { height: 180px; width: 100%; object-fit: cover; }  
-    .market-info { padding: 20px; }  
-    .market-name { font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin-bottom: 5px; }  
-    .market-card .btn-orange { width: 100%; margin-top: 15px; }  
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>BILIZ GLOBAL</h2>
+                <p>Importation Chine - Guinée</p>
+            </div>
+            <div>
+                <h4>Contact Conakry, Guinée</h4>
+                <a href="https://wa.me/224612073439" class="whatsapp-footer">+224 612 07 34 39</a>
+                <p>Disponible 24/7 sur WhatsApp</p>
+            </div>
+        </div>
+        <p style="text-align:center; margin-top:30px; font-size:0.7rem; color:#888;">&copy; 2026 BILIZ GLOBAL - Tous droits réservés.</p>
+    </footer>
 
-    /* Catégories (Icônes) */  
-    .category-item {  
-        background-color: var(--white);  
-        border: 1px solid var(--border-color);  
-        border-radius: 8px;  
-        padding: 15px 5px;  
-        text-align: center;  
-        transition: 0.3s;  
-        cursor: pointer;  
-    }  
-    .category-item.active { background-color: var(--primary-orange); color: var(--white); border-color: var(--primary-orange); }  
-    .category-item:hover:not(.active) { background-color: var(--light-gray); }  
-
-    .cat-icon { font-size: 1.8rem; margin-bottom: 8px; display: block; }  
-    .cat-name { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; }  
-
-    /* ==============================  
-       5. Section Produits Populaires  
-       ============================== */  
-    .products { padding: 60px 0; background-color: var(--light-gray); }  
-      
-    .product-card {  
-        background-color: var(--white);  
-        border-radius: 8px;  
-        border: 1px solid var(--border-color);  
-        padding: 20px;  
-        text-align: center;  
-        display: flex; flex-direction: column; justify-content: space-between;  
-        transition: 0.3s;  
-    }  
-    .product-card:hover { border-color: var(--primary-orange); }  
-
-    .product-img-box { height: 150px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; }  
-    .product-img { max-height: 100%; max-width: 100%; object-fit: contain; }  
-
-    .product-name { font-size: 0.85rem; color: var(--mid-gray); margin-bottom: 8px; font-weight: 400; min-height: 40px; }  
-    .product-price { font-size: 1.2rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 15px; }  
-    .product-card .btn-orange { width: 100%; }  
-
-    /* Barre d'info supplémentaire */  
-    .spec-request {  
-        background-color: #fff3e0;  
-        padding: 20px; margin-top: 30px;  
-        border-radius: 8px;  
-        display: flex; justify-content: space-between; align-items: center;  
-        font-size: 0.9rem; color: #e65100;  
-    }  
-
-    /* ==============================  
-       6. Pied de page (Footer)  
-       ============================== */  
-    footer {  
-        background-color: var(--dark-gray);  
-        color: var(--white);  
-        padding: 50px 0;  
-        font-size: 0.85rem;  
-    }  
-
-    .footer-content { display: flex; justify-content: space-between; align-items: start; gap: 30px; }  
-
-    .footer-logo-area { width: 30%; }  
-    .footer-logo-area img { width: 150px; margin-bottom: 15px; filter: brightness(0) invert(1); }  
-      
-    .footer-contact { width: 30%; font-size: 0.8rem; color: #ccc; }  
-    .footer-contact h4 { font-size: 1.1rem; color: var(--white); margin-bottom: 10px; }  
-    .wa-footer { color: var(--primary-orange); font-weight: 600; display: block; margin-top: 5px; }  
-
-    .footer-links { width: 35%; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }  
-    .footer-links a:hover { color: var(--primary-orange); }  
-
-    /* Barre de sécurité tout en bas */  
-    .safety-bar {  
-        background-color: #222;  
-        padding: 15px 0;  
-        font-size: 0.75rem; color: #999;  
-        text-align: center;  
-    }  
-    .safety-bar span { margin: 0 15px; }  
-    .safety-icon { color: #555; margin-right: 5px; }  
-
-    /* ==============================  
-       7. Media Queries (Responsive)  
-       ============================== */  
-    @media (max-width: 992px) {  
-        .grid-6 { grid-template-columns: repeat(3, 1fr); }  
-        .grid-8 { grid-template-columns: repeat(4, 1fr); }  
-        .hero-title { font-size: 2.2rem; }  
-        .search-area { width: 50%; }  
-    }  
-
-    @media (max-width: 768px) {  
-        .header-content { flex-direction: column; gap: 10px; text-align: center; }  
-        .search-area { width: 90%; }  
-        .guinea-flag, .whatsapp-icon { display: none; } /* On cache les flags pour épurer */  
-          
-        .grid-2, .grid-3 { grid-template-columns: 1fr; }  
-        .hero-title { font-size: 1.8rem; }  
-        .trust-badges { flex-direction: column; gap: 15px; }  
-          
-        .footer-content { flex-direction: column; text-align: center; }  
-        .footer-logo-area, .footer-contact, .footer-links { width: 100%; }  
-    }  
-</style>
-
-</head>  
-<body>  <header>  
-    <div class="container header-content">  
-        <div class="logo-area">  
-            <img src="https://image.noelshack.com/fichiers/2026/18/4/1714652253-biliz-logo.png" alt="Biliz Global Logo">  
-        </div>  
-          
-        <form class="search-area">  
-            <input type="text" placeholder="Rechercher un produit, une catégorie...">  
-            <button type="submit" class="btn-orange">Rechercher</button>  
-        </form>  
-          
-        <div class="contact-area">  
-            <div>  
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Flag_of_Guinea.svg" alt="Drapeau Guinée" class="guinea-flag">  
-                <span>+224 612 07 34 39</span><br>  
-                <span style="color: #999; font-size: 0.8rem;">Conakry, Guinée</span>  
-            </div>  
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">  
-        </div>  
-    </div>  
-</header>  
-
-<section class="hero">  
-    <div class="container">  
-        <h1 class="hero-title">VOTRE PASSERELLE <span>VERS LA CHINE</span></h1>  
-        <p>NOUS IMPORTONS, VOUS GAGNEZ !</p>  
-          
-        <div class="trust-badges">  
-            <div class="badge"><span class="badge-icon">💰</span> Meilleur prix</div>  
-            <div class="badge"><span class="badge-icon">🔒</span> Livraison sécurisée</div>  
-            <div class="badge"><span class="badge-icon">✓</span> Qualité garantie</div>  
-        </div>  
-    </div>  
-</section>  
-
-<section class="markets">  
-    <div class="container">  
-        <a href="#" class="see-all">Voir tous les marchés &rarr;</span>  
-        <h2 class="section-title">LES <span class="text-orange">3 PLUS GRANDS</span> MARCHÉS DE CHINE</h2>  
-          
-        <div class="grid-3">  
-            <div class="market-card">  
-                <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=600" alt="Yiwu" class="market-img">  
-                <div class="market-info">  
-                    <p class="text-orange" style="font-size: 0.8rem; font-weight: 600;">YIWU</p>  
-                    <h3 class="market-name">Le plus grand marché de gros du monde</h3>  
-                    <a href="#" class="btn-orange">Explorer Yiwu</a>  
-                </div>  
-            </div>  
-            <div class="market-card">  
-                <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=600" alt="Shenzhen" class="market-img">  
-                <div class="market-info">  
-                    <p class="text-orange" style="font-size: 0.8rem; font-weight: 600;">SHENZHEN</p>  
-                    <h3 class="market-name">La capitale mondiale de la technologie</h3>  
-                    <a href="#" class="btn-orange">Explorer Shenzhen</a>  
-                </div>  
-            </div>  
-            <div class="market-card">  
-                <img src="https://images.unsplash.com/photo-1582650841138-b7a4f94488b1?q=80&w=600" alt="Guangzhou" class="market-img">  
-                <div class="market-info">  
-                    <p class="text-orange" style="font-size: 0.8rem; font-weight: 600;">GUANGZHOU</p>  
-                    <h3 class="market-name">Le centre névralgique du commerce</h3>  
-                    <a href="#" class="btn-orange">Explorer Guangzhou</a>  
-                </div>  
-            </div>  
-        </div>  
-    </div>  
-</section>  
-
-<section class="categories">  
-    <div class="container">  
-        <h2 class="section-title">PLATEFORME D'IMPORTATION - TOUS LES PRODUITS DE CHINE</h2>  
-          
-        <div class="grid-8">  
-            <div class="category-item active"><span class="cat-icon">📱</span><span class="cat-name">Électronique</span></div>  
-            <div class="category-item"><span class="cat-icon">👕</span><span class="cat-name">Vêtements</span></div>  
-            <div class="category-item"><span class="cat-icon">🏠</span><span class="cat-name">Maison</span></div>  
-            <div class="category-item"><span class="cat-icon">💄</span><span class="cat-name">Beauté</span></div>  
-            <div class="category-item"><span class="cat-icon">⚙️</span><span class="cat-name">Machines</span></div>  
-            <div class="category-item"><span class="cat-icon">👟</span><span class="cat-name">Chaussures</span></div>  
-            <div class="category-item"><span class="cat-icon">🧸</span><span class="cat-name">Jouets</span></div>  
-            <div class="category-item"><span class="cat-icon">...</span><span class="cat-name">Plus</span></div>  
-        </div>  
-    </div>  
-</section>  
-
-<section class="products">  
-    <div class="container">  
-        <a href="#" class="see-all">Voir plus &rarr;</a>  
-        <h2 class="section-title">PRODUITS <span class="text-orange">POPULAIRES</span></h2>  
-          
-        <div class="grid-6">  
-            <div class="product-card">  
-                <div class="product-img-box"><img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-7inch-naturaltitanium?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1692845702708" alt="iPhone 15 Pro Max" class="product-img"></div>  
-                <p class="product-name">iPhone 15 Pro Max - 1TB (Titane)</p>  
-                <p class="product-price">$1,499.00</p>  
-                <a href="#" class="btn-orange">Commander</a>  
-            </div>  
-            <div class="product-card">  
-                <div class="product-img-box"><img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-pro-family-select?wid=940&hei=1112&fmt=jpeg&qlt=90&.v=1631301037000" alt="iPhone 13 Pro" class="product-img"></div>  
-                <p class="product-name">iPhone 13 Pro (256GB Grade A)</p>  
-                <p class="product-price">$899.00</p>  
-                <a href="#" class="btn-orange">Commander</a>  
-            </div>  
-            <div class="product-card">  
-                <div class="product-img-box"><img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?q=80&w=600" alt="Nouilles Chinoises" class="product-img"></div>  
-                <p class="product-name">Packs Nouilles Importées Authentiques (x12)</p>  
-                <p class="product-price">$24.50</p>  
-                <a href="#" class="btn-orange">Commander</a>  
-            </div>  
-            <div class="product-card">  
-                <div class="product-img-box"><img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=600" alt="Smartwatch" class="product-img"></div>  
-                <p class="product-name">Montre Connectée Sport - Noir</p>  
-                <p class="product-price">$45.00</p>  
-                <a href="#" class="btn-orange">Commander</a>  
-            </div>  
-            <div class="product-card">  
-                <div class="product-img-box"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600" alt="Chaussures" class="product-img"></div>  
-                <p class="product-name">Baskets de Sport Rouge Premium</p>  
-                <p class="product-price">$39.90</p>  
-                <a href="#" class="btn-orange">Commander</a>  
-            </div>  
-            <div class="product-card">  
-                <div class="product-img-box"><img src="https://images.unsplash.com/photo-1608247764146-d73833019183?q=80&w=600" alt="Speaker" class="product-img"></div>  
-                <p class="product-name">Enceinte Bluetooth Portable Waterproof</p>  
-                <p class="product-price">$18.75</p>  
-                <a href="#" class="btn-orange">Commander</a>  
-            </div>  
-        </div>  
-
-        <div class="spec-request">  
-            <p>+100 000 produits disponibles sur demande !</p>  
-            <button class="btn-orange">Demander un produit spécifique</button>  
-        </div>  
-    </div>  
-</section>  
-
-<footer>  
-    <div class="container footer-content">  
-        <div class="footer-logo-area">  
-            <img src="https://image.noelshack.com/fichiers/2026/18/4/1714652253-biliz-logo.png" alt="Biliz Global Logo">  
-            <p>Votre partenaire de confiance pour tous vos besoins d'importation depuis la Chine vers l'Afrique.</p>  
-        </div>  
-          
-        <div class="footer-contact">  
-            <h4>Contact</h4>  
-            <p>Conakry, République de Guinée</p>  
-            <a href="https://wa.me/224612073439" class="wa-footer">🇬🇳 +224 612 07 34 39 (WhatsApp)</a>  
-            <p style="font-size: 0.7rem; color: #888; margin-top: 5px;">Disponible 24/7 pour vos commandes.</p>  
-        </div>  
-          
-        <div class="footer-links">  
-            <a href="#">Accueil</a>  
-            <a href="#">À propos</a>  
-            <a href="#">Marchés Chinois</a>  
-            <a href="#">Produits</a>  
-            <a href="#">Livraison</a>  
-            <a href="#">Contact</a>  
-        </div>  
-    </div>  
-</footer>  
-
-<div class="safety-bar">  
-    <div class="container">  
-        <span><i class="safety-icon">🔒</i> Paiement Sécurisé 100% garanti</span>  
-        <span><i class="safety-icon">💰</i> Meilleur Prix Garanti</span>  
-        <span><i class="safety-icon">✈️</i> Livraison Rapide 5-15 jours</span>  
-        <span><i class="safety-icon">📞</i> Support 24/7 Dédié</span>  
-    </div>  
-</div>
-
-</body>  
-</html> 
+</body>
+</html>
