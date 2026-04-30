@@ -16,100 +16,74 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: var(--blanc); color: var(--noir-biliz); }
 
-        /* HEADER PROFESSIONNEL */
+        /* HEADER */
         header { 
-            background: var(--blanc); 
-            padding: 10px 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            border-bottom: 1px solid #ddd;
-            position: sticky; top: 0; z-index: 1000;
+            background: var(--blanc); padding: 10px 5%; display: flex; 
+            justify-content: space-between; align-items: center;
+            border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 1000;
         }
-        .logo-section img { height: 50px; }
-        .search-container { flex: 1; margin: 0 20px; display: flex; }
-        .search-container input { 
-            width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px 0 0 5px; 
-        }
-        .search-container button { 
-            background: var(--orange-biliz); color: white; border: none; padding: 0 20px; border-radius: 0 5px 5px 0; cursor: pointer;
-        }
+        .logo-text { font-weight: 800; color: var(--orange-biliz); font-size: 1.4rem; }
+        .search-container { flex: 1; margin: 0 20px; display: flex; max-width: 500px; }
+        .search-container input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px 0 0 5px; }
+        .search-container button { background: var(--orange-biliz); color: white; border: none; padding: 0 20px; border-radius: 0 5px 5px 0; cursor: pointer; }
         .contact-top { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 0.9rem; }
 
-        /* HERO BANNER (NAVRE ET AVION) */
+        /* HERO BANNER - IMAGE DU NAVIRE ET AVION */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1494412519320-aa613dfb7738?q=80&w=2000');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1494412519320-aa613dfb7738?q=80&w=2000');
             background-size: cover; background-position: center;
-            color: white; padding: 60px 5%; text-align: center;
+            color: white; padding: 100px 5%; text-align: center;
         }
-        .hero h1 { font-size: 2.5rem; text-transform: uppercase; line-height: 1.2; }
+        .hero h1 { font-size: 3rem; text-transform: uppercase; line-height: 1.1; }
         .hero h1 span { color: var(--orange-biliz); }
-        .hero p { margin: 15px 0; font-weight: 600; letter-spacing: 1px; }
+        .hero p { margin: 20px 0; font-size: 1.2rem; font-weight: 600; }
 
         /* MARCHÉS DE CHINE */
-        .section-title { padding: 30px 5% 10px; font-size: 1.2rem; font-weight: 700; text-transform: uppercase; }
+        .section-title { padding: 40px 5% 10px; font-size: 1.5rem; font-weight: 700; text-transform: uppercase; }
+        .section-title span { color: var(--orange-biliz); }
         .markets-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px 5%; }
-        .market-card { border: 1px solid #eee; border-radius: 10px; overflow: hidden; text-align: center; transition: 0.3s; }
-        .market-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .market-card { border: 1px solid #eee; border-radius: 12px; overflow: hidden; text-align: center; transition: 0.3s; }
         .market-card img { width: 100%; height: 200px; object-fit: cover; }
-        .market-info { padding: 15px; }
+        .market-info { padding: 20px; }
         .market-info h3 { color: var(--orange-biliz); margin-bottom: 5px; }
-        .btn-explorer { 
-            display: block; background: var(--orange-biliz); color: white; text-decoration: none; 
-            padding: 10px; margin-top: 10px; border-radius: 5px; font-weight: 600;
-        }
+        .btn-explorer { display: block; background: var(--orange-biliz); color: white; text-decoration: none; padding: 12px; margin-top: 15px; border-radius: 5px; font-weight: 700; }
 
-        /* CATÉGORIES (ICÔNES) */
-        .categories-scroll { 
-            display: flex; gap: 15px; padding: 20px 5%; overflow-x: auto; scrollbar-width: none;
-        }
-        .cat-item { 
-            min-width: 100px; padding: 15px; border: 1px solid #ddd; border-radius: 10px; 
-            text-align: center; cursor: pointer; background: white;
-        }
-        .cat-item.active { background: var(--orange-biliz); color: white; border-color: var(--orange-biliz); }
-        .cat-item i { font-size: 1.5rem; display: block; margin-bottom: 5px; }
-        .cat-item span { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+        /* CATÉGORIES */
+        .categories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 15px; padding: 20px 5%; }
+        .cat-item { border: 1px solid #ddd; padding: 20px 10px; border-radius: 10px; text-align: center; cursor: pointer; transition: 0.2s; }
+        .cat-item:hover, .cat-item.active { background: var(--orange-biliz); color: white; border-color: var(--orange-biliz); }
+        .cat-item span { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; display: block; margin-top: 10px; }
 
         /* PRODUITS POPULAIRES */
-        .products-grid { 
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
-            gap: 20px; padding: 20px 5%; 
-        }
-        .product-card { border: 1px solid #eee; border-radius: 10px; padding: 15px; text-align: center; }
-        .product-card img { max-width: 100%; height: 130px; object-fit: contain; margin-bottom: 10px; }
-        .product-card h4 { font-size: 0.85rem; height: 40px; overflow: hidden; margin-bottom: 10px; }
-        .product-card .price { font-weight: 700; font-size: 1.1rem; color: #d00; margin-bottom: 10px; }
-        .btn-commander { 
-            width: 100%; background: var(--orange-biliz); color: white; border: none; 
-            padding: 8px; border-radius: 5px; cursor: pointer; font-weight: 600;
-        }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; padding: 20px 5%; }
+        .product-card { border: 1px solid #eee; border-radius: 10px; padding: 15px; text-align: center; position: relative; }
+        .product-card img { max-width: 100%; height: 150px; object-fit: contain; margin-bottom: 15px; }
+        .product-card h4 { font-size: 0.9rem; margin-bottom: 10px; height: 45px; overflow: hidden; }
+        .product-card .price { color: var(--orange-biliz); font-weight: 800; font-size: 1.2rem; margin-bottom: 15px; }
+        .btn-commander { width: 100%; background: var(--orange-biliz); color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: 700; text-transform: uppercase; }
 
         /* FOOTER */
-        footer { background: var(--noir-biliz); color: white; padding: 40px 5%; margin-top: 50px; }
-        .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
-        .footer-logo h2 { color: var(--blanc); }
-        .whatsapp-footer { color: var(--orange-biliz); font-size: 1.5rem; font-weight: 700; text-decoration: none; }
+        footer { background: var(--noir-biliz); color: white; padding: 60px 5%; margin-top: 50px; }
+        .footer-flex { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
+        .wa-footer { color: var(--orange-biliz); font-size: 1.8rem; font-weight: 800; text-decoration: none; display: block; margin: 10px 0; }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            header { flex-direction: column; gap: 10px; }
-            .search-container { width: 100%; }
+            .hero h1 { font-size: 2rem; }
+            header { flex-direction: column; gap: 15px; }
+            .search-container { width: 100%; margin: 0; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-section">
-            <h2 style="color:var(--orange-biliz)">BILIZ GLOBAL</h2>
-        </div>
+        <div class="logo-text">BILIZ GLOBAL</div>
         <div class="search-container">
-            <input type="text" placeholder="Rechercher un produit, une catégorie...">
+            <input type="text" placeholder="Rechercher un produit ou un marché...">
             <button>Rechercher</button>
         </div>
         <div class="contact-top">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Flag_of_Guinea.svg" width="25" alt="Guinée">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Flag_of_Guinea.svg" width="25" alt="GN">
             <span>+224 612 07 34 39</span>
         </div>
     </header>
@@ -117,14 +91,14 @@
     <section class="hero">
         <h1>VOTRE PASSERELLE <br><span>VERS LA CHINE</span></h1>
         <p>NOUS IMPORTONS, VOUS GAGNEZ !</p>
-        <div style="display:flex; justify-content:center; gap:20px; font-size:0.8rem; text-transform:uppercase;">
-            <span>💰 Meilleurs Prix</span>
-            <span>🛡️ Livraison Sécurisée</span>
-            <span>✅ Qualité Garantie</span>
+        <div style="display:flex; justify-content:center; gap:30px; font-weight:700; font-size:0.8rem;">
+            <span>💰 MEILLEURS PRIX</span>
+            <span>🛡️ SÉCURISÉ</span>
+            <span>⭐ QUALITÉ</span>
         </div>
     </section>
 
-    <div class="section-title">LES 3 PLUS GRANDS MARCHÉS DE CHINE</div>
+    <div class="section-title">LES <span>3 PLUS GRANDS</span> MARCHÉS DE CHINE</div>
     <section class="markets-grid">
         <div class="market-card">
             <img src="https://images.unsplash.com/photo-1541451378359-acdead0bb8ee?q=80&w=600" alt="Yiwu">
@@ -152,50 +126,54 @@
         </div>
     </section>
 
-    <section class="categories-scroll">
-        <div class="cat-item active">📦<br><span>Tous les produits</span></div>
-        <div class="cat-item">📱<br><span>Électronique</span></div>
-        <div class="cat-item">👕<br><span>Vêtements</span></div>
-        <div class="cat-item">🏠<br><span>Maison</span></div>
-        <div class="cat-item">⚙️<br><span>Machines</span></div>
-        <div class="cat-item">👟<br><span>Chaussures</span></div>
+    <div class="section-title">PLATEFORME D'IMPORTATION</div>
+    <section class="categories-grid">
+        <div class="cat-item active">📦<span>Tous les produits</span></div>
+        <div class="cat-item">📱<span>Électronique</span></div>
+        <div class="cat-item">👕<span>Vêtements</span></div>
+        <div class="cat-item">🏠<span>Maison</span></div>
+        <div class="cat-item">💄<span>Beauté</span></div>
+        <div class="cat-item">⚙️<span>Machines</span></div>
+        <div class="cat-item">👟<span>Chaussures</span></div>
     </section>
 
-    <div class="section-title">PRODUITS POPULAIRES</div>
+    <div class="section-title">PRODUITS <span>POPULAIRES</span></div>
     <section class="products-grid">
         <div class="product-card">
             <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-7inch-naturaltitanium?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1692845702708" alt="iPhone">
             <h4>iPhone 15 Pro Max - 1TB</h4>
             <p class="price">$1,499.00</p>
-            <button class="btn-commander">Commander</button>
+            <button class="btn-commander" onclick="window.location.href='https://wa.me/224612073439?text=Bonjour, je souhaite commander l\'iPhone 15 Pro Max'">Commander</button>
         </div>
         <div class="product-card">
             <img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?q=80&w=600" alt="Noodles">
             <h4>Packs Nouilles Importées (x12)</h4>
             <p class="price">$24.50</p>
-            <button class="btn-commander">Commander</button>
+            <button class="btn-commander" onclick="window.location.href='https://wa.me/224612073439?text=Bonjour, je souhaite commander les packs de nouilles'">Commander</button>
         </div>
         <div class="product-card">
             <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=600" alt="Montre">
-            <h4>Montre Connectée Série 9</h4>
+            <h4>Montre Connectée Série 9 Luxe</h4>
             <p class="price">$45.00</p>
-            <button class="btn-commander">Commander</button>
+            <button class="btn-commander" onclick="window.location.href='https://wa.me/224612073439?text=Bonjour, je souhaite commander la Montre Série 9'">Commander</button>
         </div>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
+        <div class="footer-flex">
+            <div>
                 <h2>BILIZ GLOBAL</h2>
-                <p>Importation Chine - Guinée</p>
+                <p>Votre partenaire de confiance Chine-Afrique.</p>
             </div>
             <div>
                 <h4>Contact Conakry, Guinée</h4>
-                <a href="https://wa.me/224612073439" class="whatsapp-footer">+224 612 07 34 39</a>
-                <p>Disponible 24/7 sur WhatsApp</p>
+                <a href="https://wa.me/224612073439" class="wa-footer">+224 612 07 34 39</a>
+                <p>Service client disponible 24/7 sur WhatsApp</p>
             </div>
         </div>
-        <p style="text-align:center; margin-top:30px; font-size:0.7rem; color:#888;">&copy; 2026 BILIZ GLOBAL - Tous droits réservés.</p>
+        <div style="border-top:1px solid #444; margin-top:40px; padding-top:20px; text-align:center; font-size:0.8rem; color:#888;">
+            &copy; 2026 BILIZ GLOBAL - Tous droits réservés.
+        </div>
     </footer>
 
 </body>
