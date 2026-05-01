@@ -1,125 +1,127 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BILIZ GLOBAL | Plateforme Automatisée</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root { --orange: #f56e18; --black: #111; --gray: #f4f4f4; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
-        body { background: var(--gray); color: #333; }
-        header { background: white; padding: 15px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .logo { font-size: 24px; font-weight: 900; }
-        .logo span { color: var(--orange); }
-        
-        .search-bar { display: flex; margin-top: 15px; }
-        .search-bar input { flex: 1; padding: 12px; border: 2px solid var(--orange); border-radius: 5px 0 0 5px; outline: none; }
-        .search-bar button { background: var(--orange); border: none; color: white; padding: 0 20px; border-radius: 0 5px 5px 0; }
+import React, { useState } from 'react';
+import { ShoppingCart, Smartphone, Shirt, Home, Utensils, Search, Phone } from 'lucide-react';
 
-        .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 15px; }
-        .card { background: white; border-radius: 10px; padding: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .card img { width: 100%; height: 120px; object-fit: contain; }
-        .card h3 { font-size: 14px; margin: 10px 0; height: 35px; overflow: hidden; }
-        
-        .price-tag { background: #fff3e0; border-left: 4px solid var(--orange); padding: 5px; margin-bottom: 10px; }
-        .price-label { font-size: 10px; color: #666; display: block; }
-        .price-value { font-weight: bold; font-size: 15px; color: var(--black); }
+const BilizGlobalApp = () => {
+  const [cartCount, setCartCount] = useState(0);
 
-        .btn-order { background: var(--orange); color: white; border: none; width: 100%; padding: 10px; border-radius: 5px; font-weight: bold; cursor: pointer; }
-        
-        /* Modal pour options */
-        .modal { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: white; z-index: 1000; padding: 20px; border-radius: 20px 20px 0 0; box-shadow: 0 -5px 20px rgba(0,0,0,0.2); }
-        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }
-    </style>
-</head>
-<body>
+  // Simulation de la base de données produits (basée sur votre image)
+  const products = [
+    { id: 1, name: "iPhone 15 Pro Max - 1TB", price: 1499.00, img: "https://via.placeholder.com/150", category: "Électronique" },
+    { id: 2, name: "Packs Nouilles Importées (x12)", price: 24.50, img: "https://via.placeholder.com/150", category: "Alimentation" },
+    { id: 3, name: "Chaussures de Sport Haute Qualité", price: 39.90, img: "https://via.placeholder.com/150", category: "Mode" },
+    { id: 4, name: "Montre Connectée Série 9", price: 45.00, img: "https://via.placeholder.com/150", category: "Électronique" }
+  ];
 
-<header>
-    <div class="logo">BILIZ <span>GLOBAL</span></div>
-    <div class="search-bar">
-        <input type="text" id="q" placeholder="Chercher un produit..." onkeyup="filter()">
-        <button><i class="fa fa-search"></i></button>
+  return (
+    <div className="bg-gray-50 min-h-screen font-sans">
+      {/* HEADER TOP */}
+      <header className="bg-white border-b sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+          <div className="flex items-center space-x-2">
+            <div className="bg-orange-600 text-white p-2 rounded-full font-bold">BG</div>
+            <h1 className="text-2xl font-bold text-gray-800">BILIZ <span className="text-orange-600">GLOBAL</span></h1>
+          </div>
+          
+          <div className="hidden md:flex flex-1 mx-10">
+            <div className="relative w-full">
+              <input type="text" placeholder="Rechercher un produit, une catégorie..." className="w-full border rounded-l-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500" />
+              <button className="bg-orange-600 text-white px-6 py-2 rounded-r-md hover:bg-orange-700 transition">Rechercher</button>
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-6">
+            <div className="text-sm font-semibold flex items-center">
+              <span className="text-green-600 mr-2">●</span> +224 612 07 34 39
+            </div>
+            <div className="relative cursor-pointer" onClick={() => alert('Panier ouvert')}>
+              <ShoppingCart className="text-gray-700" />
+              <span className="absolute -top-2 -right-2 bg-orange-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">{cartCount}</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* HERO BANNER - AUTOMATISÉ */}
+      <section className="bg-blue-900 text-white py-12 px-4 relative overflow-hidden">
+        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
+          <div className="z-10">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-4 uppercase">Votre passerelle <br/><span className="text-orange-500">Vers la Chine</span></h2>
+            <p className="text-xl mb-6">Nous importons, vous gagnez !</p>
+            <div className="flex space-x-4">
+              <div className="bg-white/10 p-3 rounded text-center">🏆 Meilleurs Prix</div>
+              <div className="bg-white/10 p-3 rounded text-center">🛡️ Livraison Sécurisée</div>
+              <div className="bg-white/10 p-3 rounded text-center">⭐ Qualité Garantie</div>
+            </div>
+          </div>
+          <div className="mt-10 md:mt-0">
+             <img src="https://via.placeholder.com/400x200" alt="Logistique" className="rounded-lg shadow-2xl border-4 border-orange-500" />
+          </div>
+        </div>
+      </section>
+
+      {/* LES 3 MARCHÉS CLÉS */}
+      <section className="py-10 container mx-auto px-4">
+        <h3 className="text-xl font-bold mb-6 border-l-4 border-orange-600 pl-3">LES 3 PLUS GRANDS MARCHÉS DE CHINE</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {['YIWU (Gros)', 'SHENZHEN (Tech)', 'GUANGZHOU (Commerce)'].map((city) => (
+            <div key={city} className="group cursor-pointer bg-white rounded-xl shadow hover:shadow-xl transition overflow-hidden">
+              <div className="h-40 bg-gray-300"></div>
+              <div className="p-4 text-center">
+                <h4 className="font-bold text-orange-600">{city}</h4>
+                <button className="mt-3 bg-orange-100 text-orange-700 px-4 py-1 rounded-full text-sm font-bold group-hover:bg-orange-600 group-hover:text-white transition">Explorer {city.split(' ')[0]}</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* GRILLE DE PRODUITS */}
+      <section className="py-10 bg-white shadow-inner">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center mb-6">
+            <h3 className="text-xl font-bold uppercase">Produits Populaires</h3>
+            <span className="text-orange-600 cursor-pointer hover:underline text-sm font-bold">Voir plus &gt;</span>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {products.map((item) => (
+              <div key={item.id} className="border rounded-lg p-3 hover:shadow-md transition flex flex-col justify-between">
+                <img src={item.img} alt={item.name} className="w-full h-32 object-contain mb-2" />
+                <h4 className="text-sm font-medium mb-2 h-10 overflow-hidden">{item.name}</h4>
+                <div className="text-orange-600 font-bold mb-3">${item.price.toLocaleString()}</div>
+                <button 
+                  onClick={() => setCartCount(cartCount + 1)}
+                  className="bg-orange-600 text-white w-full py-2 rounded text-xs font-bold uppercase hover:bg-orange-700 transition"
+                >
+                  Commander
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER AUTOMATISÉ */}
+      <footer className="bg-zinc-900 text-white py-10 mt-10">
+        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h2 className="text-xl font-bold mb-4">BILIZ GLOBAL</h2>
+            <p className="text-gray-400 text-sm">Votre partenaire de confiance pour l'importation de la Chine vers l'Afrique (Conakry, Guinée).</p>
+          </div>
+          <div className="flex flex-col space-y-2">
+            <h4 className="font-bold">Contact Rapide</h4>
+            <span className="text-sm">📍 Conakry, Guinée</span>
+            <span className="text-sm">💬 WhatsApp: +224 612 07 34 39</span>
+          </div>
+          <div>
+             <h4 className="font-bold mb-4">Service Client 24/7</h4>
+             <button className="bg-green-600 text-white px-6 py-2 rounded-full font-bold flex items-center">
+               <Phone size={18} className="mr-2" /> Discuter sur WhatsApp
+             </button>
+          </div>
+        </div>
+      </footer>
     </div>
-</header>
+  );
+};
 
-<div class="products-grid" id="grid"></div>
-
-<div class="overlay" id="overlay" onclick="closeModal()"></div>
-<div class="modal" id="modal">
-    <h2 id="m-title"></h2>
-    <div id="m-options" style="margin: 20px 0;"></div>
-    <button class="btn-order" onclick="closeModal()">Fermer</button>
-</div>
-
-<script>
-    // PARAMÈTRES DU DG (MODIFIEZ ICI)
-    const frais_douane = 50; // $ fixe par produit high-tech
-    const frais_fret = 25;   // $ transport
-    const ma_marge_pct = 0.20; // 20% de bénéfice
-
-    const items = [
-        { name: "iPhone 15 Pro Max", factory: 1100, img: "https://m.media-amazon.com/images/I/61eDXs9QFNL.jpg", type: "tech" },
-        { name: "Chaussures Sport", factory: 20, img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff", type: "mode" },
-        { name: "Montre Connectée", factory: 40, img: "https://m.media-amazon.com/images/I/61ZjlBOp+rL.jpg", type: "tech" }
-    ];
-
-    function calculateFinal(factoryPrice) {
-        // Formule: (Prix + Fret + Douane) + Marge
-        let base = factoryPrice + frais_fret + frais_douane;
-        let final = base + (base * ma_marge_pct);
-        return final.toFixed(2);
-    }
-
-    function render() {
-        let html = "";
-        items.forEach((p, index) => {
-            let prixFinal = calculateFinal(p.factory);
-            html += `
-                <div class="card">
-                    <img src="${p.img}">
-                    <h3>${p.name}</h3>
-                    <div class="price-tag">
-                        <span class="price-label">Prix Total (Livré + Douane)</span>
-                        <span class="price-value">${prixFinal} $</span>
-                    </div>
-                    <button class="btn-order" onclick="openOptions(${index})">VOIR OPTIONS</button>
-                </div>
-            `;
-        });
-        document.getElementById("grid").innerHTML = html;
-    }
-
-    function openOptions(index) {
-        let p = items[index];
-        let p1 = calculateFinal(p.factory); // Prix Standard
-        let p2 = (parseFloat(p1) * 1.15).toFixed(2); // Option Premium (+15%)
-
-        document.getElementById("m-title").innerText = p.name;
-        document.getElementById("m-options").innerHTML = `
-            <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; border-radius: 5px;" onclick="whatsapp('${p.name}', '${p1}')">
-                <strong>Option STANDARD : ${p1}$</strong><br><small>Livraison normale incluse</small>
-            </div>
-            <div style="border: 1px solid #ddd; padding: 10px; border-radius: 5px;" onclick="whatsapp('${p.name}', '${p2}')">
-                <strong>Option PREMIUM : ${p2}$</strong><br><small>Livraison Express + Garantie</small>
-            </div>
-        `;
-        document.getElementById("modal").style.display = "block";
-        document.getElementById("overlay").style.display = "block";
-    }
-
-    function closeModal() {
-        document.getElementById("modal").style.display = "none";
-        document.getElementById("overlay").style.display = "none";
-    }
-
-    function whatsapp(name, price) {
-        let msg = `Bonjour Biliz Global, je commande ${name} au prix de ${price}$ (Tout inclus).`;
-        window.open("https://wa.me/224612073439?text=" + encodeURIComponent(msg));
-    }
-
-    render();
-</script>
-
-</body>
-</html>
+export default BilizGlobalApp;
