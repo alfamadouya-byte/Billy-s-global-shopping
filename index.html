@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,7 +9,7 @@
 
 <style>
 :root{
---orange:#f56e18;
+--orange:#ff6a00;
 --dark:#111;
 --light:#f5f5f5;
 }
@@ -30,28 +29,46 @@ justify-content:space-between;
 align-items:center;
 }
 
-.logo{font-size:22px;font-weight:900;}
+.logo{font-size:24px;font-weight:bold;}
 .logo span{color:var(--orange);}
 
-.search{
+.search-bar{
 display:flex;margin-top:10px;
 }
-.search input{
-flex:1;padding:12px;border:1px solid #ccc;
+.search-bar input{
+flex:1;padding:12px;border:2px solid #ddd;
 }
-.search button{
-background:var(--orange);color:white;border:none;padding:0 20px;
+.search-bar button{
+background:var(--orange);
+color:white;border:none;padding:0 25px;
 }
 
 /* HERO */
 .hero{
-background:url('https://images.unsplash.com/photo-1505765050516-f72dcac9c60b?q=80&w=1200');
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url('https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?q=80&w=1600'); /* bateau cargo */
 background-size:cover;
-color:white;text-align:center;
-padding:80px 20px;
+background-position:center;
+color:white;
+text-align:center;
+padding:100px 20px;
+position:relative;
 }
 
-.hero h1{font-size:28px;}
+.hero::after{
+content:"";
+background:url('https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=800'); /* avion cargo */
+background-size:contain;
+background-repeat:no-repeat;
+position:absolute;
+top:20px;
+right:20px;
+width:200px;
+height:100px;
+opacity:0.7;
+}
+
+.hero h1{font-size:32px;}
 .hero span{color:var(--orange);}
 
 .features{
@@ -61,11 +78,11 @@ gap:40px;
 margin-top:20px;
 }
 
-.features i{color:var(--orange);font-size:22px;}
+.features i{color:var(--orange);}
 
 /* MARKETS */
 .section{padding:30px 5%;}
-.title{text-align:center;font-weight:bold;margin-bottom:20px;}
+.title{text-align:center;font-size:20px;margin-bottom:20px;}
 
 .grid{
 display:grid;
@@ -74,16 +91,17 @@ gap:20px;
 }
 
 .card{
-background:white;border-radius:10px;
+background:white;border-radius:12px;
 overflow:hidden;text-align:center;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
-.card img{width:100%;height:180px;object-fit:cover;}
+.card img{width:100%;height:200px;object-fit:cover;}
 
 .btn{
 background:var(--orange);
 color:white;border:none;
-padding:10px 15px;margin:10px;
+padding:10px;margin:15px;
 }
 
 /* CATEGORIES */
@@ -95,50 +113,37 @@ padding:20px;
 background:white;
 }
 
-.cat{
-text-align:center;
-min-width:90px;
-cursor:pointer;
-}
+.cat{text-align:center;min-width:100px;cursor:pointer;}
+.cat i{font-size:20px;}
 
 /* PRODUCTS */
 .products{
 display:grid;
 grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
-gap:15px;
+gap:20px;
 padding:20px;
 }
 
 .product{
 background:white;
-padding:10px;
 border-radius:10px;
+padding:10px;
 text-align:center;
 }
 
 .product img{
 width:100%;
-height:140px;
+height:150px;
 object-fit:contain;
 }
 
-.price{
-font-weight:bold;
-margin:10px 0;
-}
-
-/* CTA */
-.cta{
-background:#ffe7d6;
-padding:20px;
-text-align:center;
-}
+.price{font-weight:bold;margin:10px 0;}
 
 /* FOOTER */
 footer{
-background:#111;
+background:var(--dark);
 color:white;
-padding:30px;
+padding:40px;
 text-align:center;
 }
 
@@ -155,8 +160,7 @@ border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:30px;
-text-decoration:none;
+font-size:28px;
 }
 </style>
 </head>
@@ -169,7 +173,7 @@ text-decoration:none;
 <div>+224 612 07 34 39</div>
 </div>
 
-<div class="search">
+<div class="search-bar">
 <input type="text" id="search" placeholder="Rechercher un produit...">
 <button onclick="search()">RECHERCHER</button>
 </div>
@@ -178,12 +182,12 @@ text-decoration:none;
 <!-- HERO -->
 <section class="hero">
 <h1>VOTRE PASSERELLE <span>VERS LA CHINE</span></h1>
-<p>NOUS IMPORTONS, VOUS GAGNEZ !</p>
+<p>NOUS IMPORTONS, VOUS GAGNEZ</p>
 
 <div class="features">
-<div><i class="fa fa-dollar"></i><br>MEILLEUR PRIX</div>
-<div><i class="fa fa-lock"></i><br>LIVRAISON SÉCURISÉE</div>
-<div><i class="fa fa-check"></i><br>QUALITÉ GARANTIE</div>
+<div><i class="fa fa-dollar"></i><br>Meilleur prix</div>
+<div><i class="fa fa-lock"></i><br>Livraison sécurisée</div>
+<div><i class="fa fa-check"></i><br>Qualité garantie</div>
 </div>
 </section>
 
@@ -193,35 +197,34 @@ text-decoration:none;
 
 <div class="grid">
 <div class="card">
-<img src="https://images.unsplash.com/photo-1540959733332-e94e1b3f1081">
+<img src="https://images.unsplash.com/photo-1540959733332-e94e1b3f1081?q=80&w=1200">
 <h3>YIWU</h3>
-<p>Le plus grand marché de gros</p>
-<button class="btn">Explorer Yiwu</button>
+<p>Plus grand marché de gros</p>
+<button class="btn">Explorer</button>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1555529771-835f59fc5efe">
+<img src="https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=1200">
 <h3>SHENZHEN</h3>
 <p>Capitale technologique</p>
-<button class="btn">Explorer Shenzhen</button>
+<button class="btn">Explorer</button>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1548100820-21873130983d">
+<img src="https://images.unsplash.com/photo-1548100820-21873130983d?q=80&w=1200">
 <h3>GUANGZHOU</h3>
 <p>Centre du commerce</p>
-<button class="btn">Explorer Guangzhou</button>
+<button class="btn">Explorer</button>
 </div>
 </div>
 </section>
 
 <!-- CATEGORIES -->
 <div class="categories">
-<div class="cat" onclick="filter('all')">Tous</div>
-<div class="cat" onclick="filter('electro')">Électronique</div>
-<div class="cat" onclick="filter('mode')">Vêtements</div>
-<div class="cat" onclick="filter('maison')">Maison</div>
-<div class="cat" onclick="filter('auto')">Véhicules</div>
+<div class="cat" onclick="filter('all')"><i class="fa fa-th"></i><br>Tout</div>
+<div class="cat" onclick="filter('electro')"><i class="fa fa-phone"></i><br>Électronique</div>
+<div class="cat" onclick="filter('mode')"><i class="fa fa-shirt"></i><br>Vêtements</div>
+<div class="cat" onclick="filter('maison')"><i class="fa fa-home"></i><br>Maison</div>
 </div>
 
 <!-- PRODUCTS -->
@@ -230,16 +233,8 @@ text-decoration:none;
 <div class="products" id="products"></div>
 </section>
 
-<!-- CTA -->
-<div class="cta">
-+100 000 produits disponibles sur demande !
-<button class="btn">DEMANDER UN PRODUIT</button>
-</div>
-
 <footer>
-<h2>BILIZ GLOBAL</h2>
-<p>Importation Chine → Afrique</p>
-<p>Livraison rapide | Support 24/7</p>
+<p>BILIZ GLOBAL - Import Chine Afrique</p>
 </footer>
 
 <a href="https://wa.me/224612073439" class="whatsapp">
@@ -247,13 +242,11 @@ text-decoration:none;
 </a>
 
 <script>
-const data = [
+const data=[
 {name:"iPhone 15 Pro Max",cat:"electro",price:1499,img:"https://m.media-amazon.com/images/I/61eDXs9QFNL.jpg"},
-{name:"iPhone 13 Pro",cat:"electro",price:899,img:"https://m.media-amazon.com/images/I/61eDXs9QFNL.jpg"},
-{name:"Nouilles Importées",cat:"maison",price:24,img:"https://m.media-amazon.com/images/I/71m67Y0tE+L.jpg"},
 {name:"Montre connectée",cat:"electro",price:45,img:"https://m.media-amazon.com/images/I/61ZjlBOp+rL.jpg"},
 {name:"Chaussures sport",cat:"mode",price:39,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff"},
-{name:"Enceinte Bluetooth",cat:"electro",price:18,img:"https://m.media-amazon.com/images/I/718Vv8S99RL.jpg"}
+{name:"Nouilles importées",cat:"maison",price:24,img:"https://m.media-amazon.com/images/I/71m67Y0tE+L.jpg"}
 ];
 
 function show(list){
@@ -264,7 +257,7 @@ html+=`
 <img src="${p.img}">
 <h4>${p.name}</h4>
 <div class="price">${p.price}$</div>
-<button onclick="order('${p.name}')">COMMANDER</button>
+<button onclick="order('${p.name}')">Commander</button>
 </div>`;
 });
 document.getElementById("products").innerHTML=html;
@@ -272,13 +265,12 @@ document.getElementById("products").innerHTML=html;
 
 function search(){
 let q=document.getElementById("search").value.toLowerCase();
-let res=data.filter(p=>p.name.toLowerCase().includes(q));
-show(res);
+show(data.filter(p=>p.name.toLowerCase().includes(q)));
 }
 
 function filter(cat){
-if(cat=="all") show(data);
-else show(data.filter(p=>p.cat==cat));
+if(cat==="all") show(data);
+else show(data.filter(p=>p.cat===cat));
 }
 
 function order(name){
